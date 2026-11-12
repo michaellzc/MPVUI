@@ -50,6 +50,16 @@ extension Bundle {
 """
 
 
+def swift_package_name(directory: str) -> str:
+    """Return the -package-name SwiftPM gives a package checked out in this directory.
+
+    SwiftPM lowercases the identity and turns characters that cannot appear in a Swift
+    identifier into "_", so a checkout named remote-package compiles as remote_package.
+    """
+    name = re.sub(r"[^a-z0-9_]", "_", directory.lower())
+    return "_" + name if name[:1].isdigit() else name
+
+
 def project_spec(repository: Path, output: Path, team: str | None) -> dict:
     signing = {
         "CODE_SIGNING_ALLOWED[sdk=iphonesimulator*]": "NO",
@@ -110,7 +120,7 @@ def project_spec(repository: Path, output: Path, team: str | None) -> dict:
                         "GENERATE_INFOPLIST_FILE": "YES",
                         "TEST_HOST": f"$(BUILT_PRODUCTS_DIR)/{HOST_TARGET}.app/{HOST_TARGET}",
                         "BUNDLE_LOADER": "$(TEST_HOST)",
-                        "OTHER_SWIFT_FLAGS": f"$(inherited) -package-name {shlex.quote(repository.name.lower())}",
+                        "OTHER_SWIFT_FLAGS": f"$(inherited) -package-name {shlex.quote(swift_package_name(repository.name))}",
                         **signing,
                     }
                 },

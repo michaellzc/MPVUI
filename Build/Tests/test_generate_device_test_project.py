@@ -80,7 +80,12 @@ class DeviceTestProjectTests(unittest.TestCase):
         repository = self.repository / "MPVUI Shared Core"
         spec = project.project_spec(repository, self.output, None)
         flags = spec["targets"]["MPVUITests"]["settings"]["base"]["OTHER_SWIFT_FLAGS"]
-        self.assertEqual(shlex.split(flags), ["$(inherited)", "-package-name", "mpvui shared core"])
+        self.assertEqual(shlex.split(flags), ["$(inherited)", "-package-name", "mpvui_shared_core"])
+
+    def test_package_access_matches_swiftpm_identifier_mangling(self):
+        self.assertEqual(project.swift_package_name("package"), "package")
+        self.assertEqual(project.swift_package_name("remote-package"), "remote_package")
+        self.assertEqual(project.swift_package_name("2026.MPVUI"), "_2026_mpvui")
 
     def test_foreground_host_retains_and_restores_prior_idle_timer_state(self):
         # The generated host prevents lock only while active. SDK typechecking
