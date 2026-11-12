@@ -285,7 +285,7 @@ struct NativeLock: Codable {
         try require(apple.sourceDateEpoch >= 315_532_800, "Source epoch must be ZIP-representable and explicit")
 
         try require(
-            apple.features.gpl && apple.features.libraryOnly && apple.features.videoToolbox && apple.features.moltenVK && apple.features
+            !apple.features.gpl && apple.features.libraryOnly && apple.features.videoToolbox && apple.features.moltenVK && apple.features
                 .avfoundation,
             "Unsupported feature profile"
         )

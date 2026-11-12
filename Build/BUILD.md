@@ -2,7 +2,7 @@
 
 Build native libraries for Apple platforms or [Android](#android-libraries), then select or package the result for app development. See [Architecture](../Documentation/ARCHITECTURE.md#build-and-distribution) for the two build pipelines.
 
-- `make build` applies [patches](PATCHES.md) and packages mpv, FFmpeg, and their dependencies as `Libmpv.xcframework.zip`. SwiftPM imports it as `Libmpv-GPL`.
+- `make build` applies [patches](PATCHES.md) and packages mpv, FFmpeg, and their dependencies as `Libmpv.xcframework.zip`. SwiftPM imports it as `Libmpv-LGPL`.
 - [Inputs.lock.json](Inputs.lock.json) pins build inputs and tool versions.
 - [PLATFORMS.md](PLATFORMS.md) lists native targets.
 

@@ -179,9 +179,9 @@ struct ConsumerTests {
         let evaluated = try graph.runner.run("/usr/bin/swift", ["package", "--package-path", stage.path, "dump-package"])
 
         try require(
-            evaluated.contains(remote ? index.products.first { $0.target == "Libmpv-GPL" }!.url : relativePath(
+            evaluated.contains(remote ? index.products.first { $0.target == "Libmpv-LGPL" }!.url : relativePath(
                 from: stage,
-                to: links!["Libmpv-GPL"]!
+                to: links!["Libmpv-LGPL"]!
             )),
             "SwiftPM did not resolve the selected candidate target"
         )
@@ -460,7 +460,7 @@ struct ConsumerTests {
             source
         )
 
-        try require(paths.count == 1 && paths["Libmpv-GPL"] != nil, "Consumer must link only the combined native artifact")
+        try require(paths.count == 1 && paths["Libmpv-LGPL"] != nil, "Consumer must link only the combined native artifact")
 
         var libraries: [String] = []
         var frameworks: [String] = []

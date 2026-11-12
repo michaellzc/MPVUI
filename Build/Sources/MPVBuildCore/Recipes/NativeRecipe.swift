@@ -216,7 +216,6 @@ enum FFmpegRecipe {
             "--cxx=/usr/bin/clang++",
             "--disable-debug",
             "--enable-stripping",
-            "--enable-gpl",
             "--host-cc=/usr/bin/clang",
             "--host-cflags=@mpvbuild-hostflags.rsp",
             "--host-ldflags=@mpvbuild-hostflags.rsp",
@@ -253,15 +252,13 @@ enum FFmpegRecipe {
             "libplacebo",
             "libdav1d",
             "libdovi",
-            "libuavs3d",
-            "libsmbclient"
+            "libuavs3d"
         ] {
             try require(c.dependencies[id] != nil, "Missing explicit FFmpeg dependency \(id)")
             args.append("--enable-" + id)
         }
 
         args += [
-            "--enable-protocol=libsmbclient",
             "--enable-decoder=libdav1d",
             "--enable-decoder=libuavs3d",
             "--enable-filter=ass",

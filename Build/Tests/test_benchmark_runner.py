@@ -326,7 +326,7 @@ class RunnerTests(unittest.TestCase):
             framework.mkdir()
             (framework / "Info.plist").write_bytes(plistlib.dumps({}))
             developer = root / "PinnedXcode.app/Contents/Developer"
-            manifest = {"targets": [{"type": "binary", "name": "Libmpv-GPL", "path": "Libmpv.xcframework"}]}
+            manifest = {"targets": [{"type": "binary", "name": "Libmpv-LGPL", "path": "Libmpv.xcframework"}]}
             with patch.object(benchmark, "capture", return_value=json.dumps(manifest)) as capture:
                 self.assertEqual(benchmark.selected_framework(root, developer), framework.resolve())
             self.assertEqual(capture.call_args.kwargs["env"]["DEVELOPER_DIR"], str(developer))

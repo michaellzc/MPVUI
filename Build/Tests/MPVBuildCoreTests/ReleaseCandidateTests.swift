@@ -81,7 +81,7 @@ struct ReleaseCandidateTests {
             nativeInputFingerprint: fingerprint,
             buildRecordPath: "Libmpv.xcframework/build-record.json",
             products: [Artifact(
-                target: "Libmpv-GPL",
+                target: "Libmpv-LGPL",
                 framework: "Libmpv",
                 module: "Libmpv",
                 archive: "Libmpv.xcframework.zip",

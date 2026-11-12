@@ -318,7 +318,7 @@ class DeviceBenchmarkTests(unittest.TestCase):
     def test_local_native_binary_changes_invalidate_build_identity(self):
         import plistlib
 
-        self.write("Package.swift", '.binaryTarget(name: "Libmpv-GPL", path: "Local.xcframework")')
+        self.write("Package.swift", '.binaryTarget(name: "Libmpv-LGPL", path: "Local.xcframework")')
         binary = self.write("Local.xcframework/ios-arm64/Libmpv.framework/Libmpv", "binary version one")
         (self.root / "Local.xcframework/Info.plist").write_bytes(
             plistlib.dumps(

@@ -66,7 +66,7 @@ def source_identity():
     # Local selection paths can stay constant while their binary changes.
     import re
 
-    local = re.search(r'\.binaryTarget\(name: "Libmpv-GPL", path: "([^"]+)"', (ROOT / "Package.swift").read_text())
+    local = re.search(r'\.binaryTarget\(name: "Libmpv-LGPL", path: "([^"]+)"', (ROOT / "Package.swift").read_text())
     if local:
         framework = (ROOT / local.group(1)).resolve()
         manifest = plistlib.loads((framework / "Info.plist").read_bytes())

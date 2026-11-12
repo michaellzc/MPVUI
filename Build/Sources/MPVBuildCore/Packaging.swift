@@ -24,7 +24,7 @@ struct ArtifactIndex: Codable {
 struct ProductDefinition: Codable {
 
     static let all = [ProductDefinition(
-        target: "Libmpv-GPL",
+        target: "Libmpv-LGPL",
         framework: "Libmpv",
         component: "mpv",
         library: "libmpv.a",

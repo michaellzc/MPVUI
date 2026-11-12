@@ -248,7 +248,7 @@ def selected_framework(root, developer, explicit=None):
                 env=dict(os.environ, DEVELOPER_DIR=str(developer)),
             )
         )
-        targets = [target for target in manifest["targets"] if target["type"] == "binary" and target.get("name") == "Libmpv-GPL"]
+        targets = [target for target in manifest["targets"] if target["type"] == "binary" and target.get("name") == "Libmpv-LGPL"]
         if len(targets) != 1 or not targets[0].get("path"):
             raise ValueError("Size capture needs a local Libmpv selection or --framework /path/to/Libmpv.xcframework.")
         framework = (root / targets[0]["path"]).resolve()

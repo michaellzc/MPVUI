@@ -514,36 +514,6 @@
       },
       {
         "consumers": [
-          "ffmpeg",
-          "mpv"
-        ],
-        "id": "libsmbclient",
-        "kind": "prebuilt-sdk",
-        "runtime": [
-          {
-            "framework": "Libsmbclient",
-            "module": "Libsmbclient",
-            "sha256": "3a53375fab11bc888cc553664ea5dd902208d04f0cc21ec746302bf356246b6f",
-            "target": "Libsmbclient",
-            "url": "https://github.com/mpvkit/libsmbclient-build/releases/download/4.15.13-2512/Libsmbclient.xcframework.zip"
-          }
-        ],
-        "sha256": "6861f0b0e45abd3248a8160d1c0b4ede66eef5163f04598830883a951607cef9",
-        "slices": [
-          "ios",
-          "isimulator",
-          "maccatalyst",
-          "macos",
-          "tvos",
-          "tvsimulator",
-          "xros",
-          "xrsimulator"
-        ],
-        "url": "https://github.com/mpvkit/libsmbclient-build/releases/download/4.15.13-2512/libsmbclient-all.zip",
-        "version": "4.15.13-2512"
-      },
-      {
-        "consumers": [
           "mpv"
         ],
         "id": "libbluray",
@@ -836,7 +806,7 @@
     "epochPolicy": "Pinned upstream recipe commit committer timestamp",
     "features": {
       "avfoundation": true,
-      "gpl": true,
+      "gpl": false,
       "libraryOnly": true,
       "moltenVK": true,
       "videoToolbox": true

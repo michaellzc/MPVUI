@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def main():
     package = json.loads(subprocess.check_output(["swift", "package", "--package-path", ROOT, "dump-package"], text=True))
-    binary = next(target for target in package["targets"] if target["name"] == "Libmpv-GPL")
+    binary = next(target for target in package["targets"] if target["name"] == "Libmpv-LGPL")
     with tempfile.TemporaryDirectory(prefix="mpvui-apple-consumer-") as temporary:
         consumer = Path(temporary)
         library = consumer / "mpvui"
@@ -34,7 +34,7 @@ def main():
             shutil.copytree(artifact, library / "Native/Libmpv.xcframework", symlinks=True)
             manifest = re.sub(
                 r"// MPVBUILD_BINARY_TARGETS_BEGIN.*?// MPVBUILD_BINARY_TARGETS_END",
-                'private let binaryTargets: [Target] = [.binaryTarget(name: "Libmpv-GPL", path: "Native/Libmpv.xcframework")]',
+                'private let binaryTargets: [Target] = [.binaryTarget(name: "Libmpv-LGPL", path: "Native/Libmpv.xcframework")]',
                 manifest,
                 flags=re.S,
             )

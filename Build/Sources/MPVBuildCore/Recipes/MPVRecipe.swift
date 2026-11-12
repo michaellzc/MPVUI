@@ -9,7 +9,7 @@ enum MPVRecipe {
         var options = [
             "-Dlibmpv=true",
             "-Dcplayer=false",
-            "-Dgpl=true",
+            "-Dgpl=false",
             "-Dbuild-date=false",
             "-Dauto_features=disabled",
             "-Diconv=enabled",
