@@ -13,6 +13,14 @@ import UIKit
 @MainActor
 final class PlaybackFixture {
 
+    /// How long `loadPaused` waits for media to open, seek, and settle paused.
+    /// A loaded simulator can take longer than the default wait. This only bounds readiness; no test times it.
+    /// Set `MPVUI_TEST_PAUSED_MEDIA_TIMEOUT` (seconds) to override.
+    static let pausedMediaTimeout: Duration = {
+        let value = ProcessInfo.processInfo.environment["MPVUI_TEST_PAUSED_MEDIA_TIMEOUT"].flatMap(Double.init)
+        return .seconds(value.map { max($0, 1) } ?? 15)
+    }()
+
     let player: MPVPlayer
     let surface: MPVPlatformVideoPlayer
     #if os(macOS)
@@ -107,7 +115,7 @@ final class PlaybackFixture {
     func loadPaused(_ url: URL = TestPaths.baselineMedia, at position: Duration = .seconds(1)) async throws {
         player.load(url, playAutomatically: false, startTime: position)
 
-        try await eventually("paused media at \(position)") {
+        try await eventually("paused media at \(position)", timeout: Self.pausedMediaTimeout) {
             self.player.state == .paused && self.player.isPaused && self.player.isSeekable
                 && abs(self.player.position.seconds - position.seconds) < 0.2
                 && self.player.mediaInformation.dimensions != nil
