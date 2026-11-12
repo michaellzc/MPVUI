@@ -814,7 +814,7 @@
     "metadataVersion": "1.0.0-mpvui.2",
     "publication": {
       "nativePrefix": "native-",
-      "repository": "LePips/MPVUI"
+      "repository": "michaellzc/MPVUI"
     },
     "recipeSource": {
       "commit": "288527dffbc6d3e63cce147fc7b520c64a791603",
