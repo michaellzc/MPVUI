@@ -939,32 +939,32 @@
       ],
       "sdks": {
         "appletvos": {
-          "build": "24J360",
-          "version": "27.0"
+          "build": "24K122",
+          "version": "27.2"
         },
         "appletvsimulator": {
-          "build": "24J360",
-          "version": "27.0"
+          "build": "24K122",
+          "version": "27.2"
         },
         "iphoneos": {
-          "build": "24A94232",
-          "version": "27.1"
+          "build": "24B8118",
+          "version": "27.2"
         },
         "iphonesimulator": {
-          "build": "24A94232",
-          "version": "27.1"
+          "build": "24B8118",
+          "version": "27.2"
         },
         "macosx": {
-          "build": "26A425",
-          "version": "27.0"
+          "build": "26B118",
+          "version": "27.2"
         },
         "xros": {
-          "build": "24M361",
-          "version": "27.0"
+          "build": "24N120",
+          "version": "27.2"
         },
         "xrsimulator": {
-          "build": "24M361",
-          "version": "27.0"
+          "build": "24N120",
+          "version": "27.2"
         }
       },
       "tools": {
@@ -978,10 +978,10 @@
         "zip": "This is Zip 3.0 (July 5th 2008), by Info-ZIP, with modifications by Apple Inc."
       },
       "xcode": {
-        "build": "27A9275",
-        "clang": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
-        "swift": "swift-driver version: 1.168.6 Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)",
-        "version": "27.1"
+        "build": "27B52",
+        "clang": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+        "swift": "swift-driver version: 1.168.6 Apple Swift version 6.4.2 (swiftlang-6.4.2.1.9 clang-2100.4.1.1)",
+        "version": "27.2"
       }
     }
   },
